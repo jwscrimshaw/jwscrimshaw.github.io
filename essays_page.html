@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essays - Jodie Scrimshaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .year-navigation {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .year-tab {
+            padding: 10px 20px;
+            background: rgba(236, 72, 153, 0.1);
+            border: 2px solid #ec4899;
+            border-radius: 25px;
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .year-tab:hover, .year-tab.active {
+            background: #ec4899;
+            color: white;
+        }
+        
+        .year-section {
+            display: none;
+        }
+        
+        .year-section.active {
+            display: block;
+        }
+        
+        .year-header {
+            text-align: center;
+            margin: 3rem 0 2rem 0;
+            padding: 1.5rem;
+            background: rgba(236, 72, 153, 0.05);
+            border-radius: 15px;
+        }
+        
+        .year-header h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            border: none;
+            padding: 0;
+        }
+        
+        .course-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(236, 72, 153, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid #ec4899;
+        }
+
+        .project-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-card h3 a:hover {
+            color: #ec4899;
+        }
+
+        .project-full-text {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .project-full-text.expanded {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Jodie Scrimshaw</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="essays.html">Essays</a></li>
+                <li><a href="thesis.html">Thesis</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="index.html#essays" class="back-button">← Back to Home</a>
+        
+        <div class="page-header">
+            <h1>Essays</h1>
+            <p>Academic essays spanning philosophy, argumentation, and interdisciplinary topics</p>
+        </div>
+        
+        <div class="year-navigation">
+            <div class="year-tab active" onclick="showYear('2025')">2025</div>
+            <div class="year-tab" onclick="showYear('2024')">2024</div>
+            <div class="year-tab" onclick="showYear('2023')">2023</div>
+            <div class="year-tab" onclick="showYear('2022')">2022</div>
+            <div class="year-tab" onclick="showYear('2021')">2021</div>
+        </div>
+
+        <!-- 2025 -->
+        <div id="year-2025" class="year-section active">
+            <div class="year-header">
+                <h2>2025</h2>
+                <p>Advanced philosophical inquiry and specialized studies</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="pdfs/philooflanguage2025.pdf">Reasoning and Insinuation</a></h3>
+                    <p>An analysis of Mercier and Sperber's account of reason applied to Elizabeth Camp's work on insinuation, exploring how reason functions as a communicational tool rather than a purely abstract process.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Reason is often seen as the hallmark of human thought – an abstract, deliberate process that guides us to truth. But what if this view is mistaken? In The Enigma of Reason, Mercier and Sperber argue that reason evolved not to help us think better alone, but to justify ourselves to others. This essay explores that shift in perspective and applies it to the phenomenon of insinuation, as analysed by Elizabeth Camp.</p>
+
+                        <p><strong>Mercier and Sperber's Account of Reason:</strong> Mercier and Sperber propose that reason should not be considered something we do internally, before making important decisions. Rather, they argue that reason is inextricably linked to communication between individuals and can only truly be understood from this context. The primary function of reason is not solitary thinking but argumentation – it evolved to help us justify our actions, persuade others, and evaluate the arguments of others within social interactions.</p>
+
+                        <p><strong>Insinuation and Communication:</strong> Elizabeth Camp explores insinuation as a phenomenon that relies on the tension between what is said and what is implied, allowing speakers to communicate indirect messages while preserving deniability. Insinuation is inherently tied to interpersonal communication and relies on what is not said to convey intention while maintaining deniability for the speaker.</p>
+
+                        <p><strong>Reason in Insinuation:</strong> When examining the role that reason plays in insinuation according to Mercier and Sperber's account, we find that the effectiveness of insinuation depends on the inability of the hearer to directly support their interpretation of the meaning of the utterance. What protects the speaker is that the hearer's interpretation is typically based on intuition, not a step-by-step process of traditional reasoning.</p>
+
+                        <p><strong>Conclusion:</strong> This essay demonstrates how reason functions as a communicational tool that we use to support decisions we arrive at on intuition, when confronted by others and compelled to do so. The effectiveness of insinuation depends on the inability of the hearer to directly support their interpretation of the meaning of the utterance, supporting the view that reason operates primarily in social contexts rather than as an abstract cognitive process.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Philosophy of Language [FI244PL]<br>
+                            <strong>Supervisor:</strong> Emar Maier and Merel Semeijn<br>
+                            <strong>Date:</strong> March 24, 2025
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Philosophy of Language</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/socialepistemologyofscience2025.pdf">Feminist Empiricism and Standpoint Theory: A Critical Response to Kristen Intemann</a></h3>
+                    <p>A critical analysis of Kristen Intemann's proposal to merge feminist empiricism and standpoint theory, arguing that feminist empiricism can be strengthened from within rather than requiring such a synthesis.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Feminist philosophy of science investigates how gender, power, and social context influence scientific inquiry. Two major approaches, feminist empiricism and standpoint theory, seek to improve science by making it more inclusive and attentive to social influences. In her 2010 paper, Kristen Intemann proposes a merger between these views into what she calls feminist standpoint empiricism.</p>
+
+                        <p><strong>Intemann's Argument:</strong> Intemann argues that contemporary feminist empiricism is characterized by contextualism, normativity, and a commitment to social epistemology. However, she contends that feminist empiricism lacks a clear account of which values or perspectives should count as epistemically beneficial, making it vulnerable to including even harmful values like those of the Flat Earth Society.</p>
+
+                        <p><strong>Problems with the HIV Researcher Example:</strong> Intemann's example of a female biomedical researcher from sub-Saharan Africa working on HIV vaccines is lacking. The researcher's insight arises from her professional training, domain-specific expertise, and culturally situated knowledge, not from marginalization specifically. The example highlights the relevance of local knowledge and interdisciplinary experience, not necessarily a standpoint derived from oppression.</p>
+
+                        <p><strong>Misunderstanding Feminist Empiricism:</strong> Intemann's argument unfairly distorts feminist empiricism by suggesting it lacks internal criteria to distinguish helpful from harmful values. Feminist empiricists like Longino argue that for a value to play a legitimate epistemic role, it must survive critical scrutiny and be empirically valid. These mechanisms ensure that empiricism does not fall into relativism.</p>
+
+                        <p><strong>Conclusion:</strong> Kristen Intemann's proposal for merging feminist empiricism and standpoint theory rests on a problematic example, a misreading of feminist empiricism, and a risky overvaluation of standpoint epistemology. The better path lies in revising and fortifying feminist empiricism from within.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Social Epistemology of Science<br>
+                            <strong>Supervisor:</strong> Felipe Romero<br>
+                            <strong>Date:</strong> June 13, 2025
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Social Epistemology</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/theoriesofpersonalidentity2024.pdf">Building Up from the Sparse Ontology – Rejecting Animalism and Constitutionalism</a></h3>
+                    <p>An exploration of personal identity theories through Eric T. Olson's work, arguing that thinking and perceiving cannot be material properties and that persons are best understood as immaterial structures of information.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> What are we, fundamentally? Are we biological animals, material bodies, or something more? This essay explores tensions between the material structure of the human organism and the immaterial qualities of thought, consciousness, and perceiving through Eric T. Olson's "What Are We?"</p>
+
+                        <p><strong>Constitutionalism:</strong> Lynne Baker's Constitution View argues that a person is not identical to the human organism that constitutes them. Instead, a person is a distinct material object that comes into existence when a human organism develops the right psychological and social conditions. Constitution is a relation where one thing makes up the physical basis of another but does not reduce it to what the other is.</p>
+
+                        <p><strong>Animalism:</strong> Olson's animalism denies that we are distinct from animals. Animalists believe that the thinker and perceiver is one and the same as their animal body. Human animals are biological organisms made up entirely of matter with no immaterial parts, yet fully capable of thought and perception.</p>
+
+                        <p><strong>Information as Immaterial:</strong> The part of ourselves that thinks and perceives is best understood as a form of information. Information is not itself material, even if it depends on material substrates. Consider the analogy of a computer: information is expressed through material components, but the content is not reducible to any particular set of particles. The same applies to thinking and perceiving.</p>
+
+                        <p><strong>Conclusion:</strong> What we are, fundamentally, is not a body, nor a body constituted as a person, but a structure of information—an informational pattern that interprets other information, and whose identity cannot be reduced to the material systems it depends on.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Theories of Personal Identity [FI2441C]<br>
+                            <strong>Supervisor:</strong> Hans Thomas<br>
+                            <strong>Date:</strong> March 20, 2025
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Personal Identity</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/historicisedapriori2024.pdf">The Nature of Scientific Progress</a></h3>
+                    <p>A critical examination of Thomas Kuhn's account of scientific progress, arguing that his conception of paradigms is too radical and proposing a broader understanding of scientific progress as the fulfillment of goals.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Thomas Kuhn's influential account in The Structure of Scientific Revolutions proposes that science advances not through steady accumulation of knowledge but via paradigm shifts. This essay critically examines Kuhn's account, arguing that his conception of paradigms is too radical and underestimates the diverse motivations behind scientific inquiry.</p>
+
+                        <p><strong>Kuhn's Paradigm Theory:</strong> Kuhn describes science as moving through alternating phases of "normal science," where scientists work within established paradigms, and "revolutionary science," where a crisis leads to a paradigm shift. Progress occurs when one paradigm replaces another because the new paradigm offers better solutions to problems that the previous paradigm could not adequately address.</p>
+
+                        <p><strong>The Radical Paradigm Problem:</strong> Kuhn's portrayal of paradigms as too radical and all-encompassing is problematic. In chemistry, we see multiple paradigm models coexisting and being used interchangeably depending on researcher goals. Lewis structures and Molecular Orbital (MO) theory provide a striking example - both continue to be used despite their incommensurability.</p>
+
+                        <p><strong>Beyond Normal Science:</strong> Normal science is not solely concerned with working within paradigms. Practical necessities, unforeseen discoveries, and immediate applications frequently drive scientific progress. Engineering provides examples of scientific work that operates with purely practical purposes, while accidental discoveries like Kevlar and Teflon show how science can advance unintentionally.</p>
+
+                        <p><strong>What is Progress?:</strong> Progress in science should be seen as the achievement of specific goals set by scientists rather than being confined to paradigm shifts or theoretical refinements. Theoretical frameworks and models function as tools to achieve these goals rather than as definitive measures of progress.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> The historicized a-priori and its Consequences [FI2441CI1]<br>
+                            <strong>Supervisor:</strong> Jan-Willen Romeijn<br>
+                            <strong>Date:</strong> January 21, 2025
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Philosophy of Science</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div id="year-2024" class="year-section">
+            <div class="year-header">
+                <h2>2024</h2>
+                <p>Deepening philosophical analysis and argumentation</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="pdfs/philoofillnessandmedicine2024.pdf">Does Boorse's account of disease being value-free survive the critique of Kingsma and Schwartz?</a></h3>
+                    <p>An analysis of Christopher Boorse's Biostatistical Theory and its critiques, examining whether the definition of disease can be considered value-free and defending reference classes while arguing that disease classification must involve value judgments.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> The concept of disease and its classification have long been subjects of debate in medical philosophy. Christopher Boorse argues that the medical conception of health—defined as the absence of disease—is a value-free notion based on biological function and statistical normality. This essay explores Boorse's Biostatistical Theory (BST) and critiques from philosophers like Elselijn Kingma and Peter H. Schwartz.</p>
+
+                        <p><strong>Boorse's Theory:</strong> Boorse's BST aims to provide an objective framework for distinguishing health from disease, devoid of normative judgments. Health is normal functioning, defined statistically and biologically: a healthy organism is one where all internal parts perform their typical functions with typical efficiency within appropriate reference classes of age, sex, and species.</p>
+
+                        <p><strong>Kingma's Critique:</strong> Kingma argues that Boorse's selection of reference classes inadvertently involves evaluative judgments. She critiques the justification for reference classes based on "natural occurrence," "uniformity," and "design," arguing that none adequately justify the selection of appropriate reference classes in a purely empirical manner.</p>
+
+                        <p><strong>Defence of Reference Classes:</strong> I defend Boorse's reference classes as value-free by arguing that they are based on immutable biological boundaries and natural, empirical distinctions. The distinction between appropriate and inappropriate reference classes is not arbitrary but based on the inherent, unchangeable nature of biological design. Males and females possess distinct anatomical structures essential for reproduction and survival.</p>
+
+                        <p><strong>Schwartz's Critique and Value-Laden Classification:</strong> Schwartz's refinement requiring consideration of "negative consequences" necessarily involves evaluative criteria about what constitutes significant impact on standard organism activities. This makes disease classification more value-laden than Boorse's original intent, though it appears to be a necessary addition.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Philosophy of Illness and Medicine<br>
+                            <strong>Date:</strong> July 3, 2024
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Philosophy of Medicine</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/loopyminds2024.pdf">Beyond Appraisal: Strengthening Colombetti's Enactive Approach to Emotion</a></h3>
+                    <p>An expansion and strengthening of Giovanna Colombetti's enactive approach to emotion, arguing that emotions are deeply embodied phenomena that often bypass conscious cognitive appraisal.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Traditional models of emotion have primarily emphasized cognitive processes—appraisals—as essential to the emergence of emotional states. However, this conceptual separation between mind and body has been increasingly challenged. Giovanna Colombetti's enactive approach merges bodily and cognitive processes into a unified, dynamic framework.</p>
+
+                        <p><strong>Traditional Theories:</strong> Three traditional accounts are examined: 1) Body plays indirect role requiring cognitive interpretation, 2) Bodily responses are outcomes of cognitive appraisal processes, and 3) Appraisal and bodily processes interact as separate subsystems. Each treats the body as secondary to cognitive evaluation.</p>
+
+                        <p><strong>Limitations in Everyday Life:</strong> Traditional theories fail to account for emotions without clear appraisal (feeling guilty without knowing why), emotions contrary to expectations (not feeling grief when logically warranted), and instantaneous emotional responses that bypass cognitive evaluation (immediate fear response to perceived threats).</p>
+
+                        <p><strong>Colombetti's Enactive Approach:</strong> Building on Marc Lewis's dynamic systems model, Colombetti argues that appraisal and emotion form an inseparable unity. Appraisal is not an abstract cognitive process but a dynamic, embodied experience directly informed by bodily arousal, actions, and environmental interactions. Emotions are "enacted" through active bodily participation.</p>
+
+                        <p><strong>Conclusion:</strong> Colombetti's enactive model provides a more comprehensive framework that captures the complexity, fluidity, and embodied nature of emotions, offering a richer understanding of what it means to feel by grounding emotional experience in bodily engagement with the environment.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Loopy Minds: Core ideas of 4E cognition [FI224LM]<br>
+                            <strong>Supervisor:</strong> Fred Keijze<br>
+                            <strong>Date:</strong> November 1, 2024
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">4E Cognition</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/philoofargument2024.pdf">Talking points: do they solve the issue of hermeneutical lacunae?</a></h3>
+                    <p>An extension of Katharina Stevens' work on the strawman fallacy, proposing that victims can be fooled not only by gaps in knowledge but also by uncritical acceptance of prevalent talking points in societal discourse.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Katharina Stevens argues that victims of the strawman can be fooled if they have gaps in their knowledge (hermeneutical lacuna) that prevents them from properly rationalising their position. I agree and offer an additional situation where victims can be fooled by uncritical acceptance of prevalent talking points or terms in societal discourse.</p>
+
+                        <p><strong>Stevens' Framework:</strong> Stevens provides scenarios where victims can be fooled by the strawman fallacy due to hermeneutical lacuna—a gap in understanding or lack of vocabulary to adequately rationalise arguments. Her example of Susan, who lacks the concept of sexual harassment to articulate her workplace experience, demonstrates how victims can accept misrepresentations of their situations.</p>
+
+                        <p><strong>My Extension:</strong> I propose that individuals may possess appropriate vocabulary but lack deep understanding or reasoning skills to engage critically with concepts. Using an example where someone experiences uncomfortable behavior at a club, I show how the term "sexual harassment" can be applied too broadly, leading the victim to accept a reconstruction of their experience that may not accurately reflect the situation.</p>
+
+                        <p><strong>Abortion Debate Example:</strong> The pro-life talking point "abortion is murder" demonstrates how potent phrases repeated by advocates can convince individuals without proper reasoning about what constitutes murder, when life begins, or when a fetus gains independent rights. A woman who had an abortion after sexual assault might accept being labeled a "murderer" due to the weight of this established talking point.</p>
+
+                        <p><strong>Difference from Zarefsky:</strong> While similar to David Zarefsky's concept of strategic maneuvering through persuasive definitions, my focus differs by examining how arguers themselves (not audiences) can be fooled. The difference from Stevens' hermeneutical lacuna is that verbal tools are available, but the reasoning falls short.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Philosophy of argument [FI233VL]<br>
+                            <strong>Supervisor:</strong> Jan Albert van Laar<br>
+                            <strong>Date:</strong> March 28, 2024
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Argumentation Theory</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2023 -->
+        <div id="year-2023" class="year-section">
+            <div class="year-header">
+                <h2>2023</h2>
+                <p>Exploring fundamental philosophical concepts</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="pdfs/philooofthenaturalsciences2023.pdf">Is Newton's absolute space a priori synthetic knowledge and does this threaten Leibniz's critique?</a></h3>
+                    <p>An argument that Newton's absolute space is a priori synthetic knowledge, meaning it is based on rational intuition and cannot be derived from experience alone, and an examination of whether this undermines Leibniz's critique.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> The concept of absolute space, introduced by Isaac Newton, has been a topic of philosophical debate for centuries. Absolute space is a metaphysical concept that describes a three-dimensional, Euclidean, fixed entity that is a stationary reference point for all objects. This essay argues that Newton's absolute space is a priori synthetic knowledge and examines whether this threatens Leibniz's critique.</p>
+
+                        <p><strong>Newton's Absolute Space:</strong> Absolute space is a hypothetical reference frame defined as being fixed at rest, relative to all objects in the universe. Newton introduced this concept because acceleration can be detected without any observable frame of reference, suggesting there must be an independent stationary reference frame in space—absolute space. This allows for absolute acceleration (measurable), absolute velocity, and absolute position (both unmeasurable).</p>
+
+                        <p><strong>Leibniz's Critique:</strong> Leibniz was a relationalist who rejected absolute space. According to relationalism, space does not exist independently of the objects that occupy it. Leibniz used the Principle of the Identity of Indiscernibles (PII) to argue against absolute space, claiming that if two things behave exactly the same way, they must be the same thing. He imagined a universe at rest versus one moving at constant velocity—if indistinguishable, absolute space cannot exist.</p>
+
+                        <p><strong>A Priori Argument:</strong> Absolute space can be seen as a logical necessity rather than a metaphysical construct. From the definition of motion as the rate of change of position over time, it can be directly inferred that there must be a relative state of rest. All objects in motion must have a common state of rest as a logical prerequisite before motion can occur. This relative state of rest represents Newton's absolute space as a priori synthetic knowledge.</p>
+
+                        <p><strong>Limitations:</strong> While absolute velocity can be argued as a priori, absolute position cannot be similarly defended. Not all objects must have started from the same point in space, so absolute position remains empirically and logically unproven. Therefore, Newton's complete notion of absolute space isn't entirely defended from relationalist attacks.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Philosophy of the Natural Sciences [FI153LH]<br>
+                            <strong>Date:</strong> April 4, 2023
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Philosophy of Science</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="pdfs/analyticexistentialism2022.pdf">Refutation of the necessity of objective 'Positive Value' to lead a meaningful life – Susan Wolf</a></h3>
+                    <p>A critique of Susan Wolf's arguments for why positive value must be objective rather than subjective, arguing that her distinction between seeming meaningful and actually meaningful is unjustified.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Susan Wolf attempts to construct fundamental principles of what entails a meaningful life by eliminating meaningless lives and developing principles for meaningful ones. This essay analyzes Wolf's arguments and refutes her conclusion that living a meaningful life entails engaging in projects of objective positive value.</p>
+
+                        <p><strong>Wolf's Theory:</strong> Wolf identifies three types of meaningless lives: "the blob" (passive existence), useless repetitive activity (like the pig farmer), and bankrupt goals (efforts rendered meaningless by external events). She concludes that "A meaningful life is one that is actively and at least somewhat successfully engaged in a project (or projects) of positive value," where positive value must be objective rather than subjective.</p>
+
+                        <p><strong>Wolf's Argument for Objectivity:</strong> Wolf argues that subjective meaning leads to no distinction between living a meaningful life and living a life that merely seems meaningful. She uses the example of someone having an epiphany and realizing their previous life was meaningless, suggesting this proves the difference between perceived and actual meaning.</p>
+
+                        <p><strong>Refuting the Distinction:</strong> The experience of having an epiphany doesn't prove objective meaning exists. Such experiences generally result from extraordinary events that cause people to re-align their values, reflected in what they deem meaningful. There's no logical argument proving that new preferences have objectively positive value. One could imagine the epiphany going the opposite way—from family focus to career focus.</p>
+
+                        <p><strong>Sisyphus Example:</strong> Richard Taylor's example of Sisyphus demonstrates subjective meaningful life. When injected with a serum making him desire to push the boulder, Sisyphus's life gains meaning despite no external change. This highlights that what determines meaningful life depends on the values and preferences of the person living it.</p>
+
+                        <p><strong>Against Egocentrism:</strong> Wolf's claim that subjective meaning is inherently egotistical doesn't follow. By her reasoning, anyone pre-epiphany living subjectively meaningful lives must be completely egotistical—an absurd conclusion that shows subjectively meaningful lives aren't necessarily self-serving.</p>
+                        
+                        <div class="course-info">
+                            <strong>Course:</strong> Analytic Existentialism [FI183FR]<br>
+                            <strong>Date:</strong> February 24, 2023
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Existentialism</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2022 -->
+        <div id="year-2022" class="year-section">
+            <div class="year-header">
+                <h2>2022</h2>
+                <p>Foundational studies in ethics, political philosophy, and argumentation</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="pdfs/socialandpoliticalphil2022.pdf">Is Marx correct in his definition of exploitation?</a></h3>
+                    <p>An analysis of Marx's limiting definition of exploitation and development of a more useful definition that solves issues while maintaining Marx's core insights about capitalist systems.</p>
+                    <div class="project-full-text">
+                        <p><strong>Introduction:</strong> Marx's definition of exploitation as the extraction of surplus labour causes issues where non-exploitative situations appear exploitative, or contradictions arise. This essay analyzes Marx's definition and proposes a more philosophically useful alternative.</p>
+
+                        <p><strong>Marx's Background:</strong> Marx's ideas critique liberalism by arguing that ensuring basic rights isn't sufficient for equality. Capitalist society divides into capitalists and the working class, with the working class being exploited through the extraction of surplus labour—the difference between the cost of labour power and the value labour power produces.</p>
+
+                        
