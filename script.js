@@ -194,3 +194,30 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('popstate', function(event) {
     handlePageReturn();
 });
+
+function showYear(year) {
+  // show the matching year section
+  document.querySelectorAll('.year-section').forEach(sec => {
+    sec.classList.toggle('active', sec.id === `year-${year}`);
+  });
+  // update active tab styling
+  document.querySelectorAll('.year-tab').forEach(tab => {
+    const isActive = tab.textContent.trim() === String(year);
+    tab.classList.toggle('active', isActive);
+  });
+  // optional: scroll to that section
+  const target = document.getElementById(`year-${year}`);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggleContent(btn) {
+  const card = btn.closest('.project-card');
+  const full = card && card.querySelector('.project-full-text');
+  if (!full) return;
+  const expanded = full.classList.toggle('expanded');
+  btn.textContent = expanded ? 'See Less' : 'See More';
+}
+
+// expose to inline onclick handlers
+window.showYear = showYear;
+window.toggleContent = toggleContent;
