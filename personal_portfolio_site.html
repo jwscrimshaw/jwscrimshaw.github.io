@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #ec4899;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ec4899;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 100px 20px 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #ec4899;
+            padding-bottom: 10px;
+        }
+
+        .section h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .section h2 a:hover {
+            color: #ec4899;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #ec4899;
+            max-width: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-card h3 a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-card h3 a:hover {
+            color: #ec4899;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-preview {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: none;
+            line-height: 1.7;
+        }
+
+        .project-full-text {
+            color: #444;
+            margin-bottom: 1rem;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(236, 72, 153, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(236, 72, 153, 0.1);
+            line-height: 1.8;
+        }
+
+        .project-full-text::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .project-full-text::-webkit-scrollbar-track {
+            background: rgba(236, 72, 153, 0.1);
+            border-radius: 4px;
+        }
+
+        .project-full-text::-webkit-scrollbar-thumb {
+            background: rgba(236, 72, 153, 0.3);
+            border-radius: 4px;
+        }
+
+        .project-full-text::-webkit-scrollbar-thumb:hover {
+            background: rgba(236, 72, 153, 0.5);
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .project-tag {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .see-more-btn {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.3);
+        }
+
+        .see-more-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .profile-placeholder {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 25px rgba(236, 72, 153, 0.3);
+        }
+
+        /* Individual Page Styles */
+        .page-container {
+            display: none;
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .individual-post {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ec4899;
+        }
+
+        .individual-post h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .individual-post .meta {
+            color: #888;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .individual-post .content {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .individual-post .content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ec4899;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showPage('home')">Your Name</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('essays')">Essays</a></li>
+                <li><a href="#" onclick="showPage('thesis')">Thesis</a></li>
+                <li><a href="#" onclick="showPage('stories')">Stories</a></li>
+                <li><a href="#" onclick="showPage('philosophy')">Philosophy</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-container active">
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to My Intellectual Journey</h1>
+                <p>Exploring ideas through essays, stories, philosophical reflections, and academic research. A collection of thoughts, arguments, and creative expressions.</p>
+                <a href="#" onclick="showPage('about')" class="cta-button">Discover My Work</a>
+            </div>
+        </section>
+
+        <main class="container">
+            <section class="section">
+                <h2><a href="#" onclick="showPage('about')">About Me</a></h2>
+                <div class="about-content">
+                    <div class="profile-placeholder">
+                        Your Photo Here
+                    </div>
+                    <div class="about-text">
+                        <p>Welcome! I'm a writer, thinker, and researcher passionate about exploring the depths of human experience through various forms of expression. My work spans academic research, creative writing, and philosophical inquiry.</p>
+                        
+                        <p>This site serves as a repository for my intellectual pursuits - from rigorous academic essays and thesis work to creative stories and philosophical musings. Each piece represents a step in my ongoing journey of understanding and articulating the complexities of our world.</p>
+                        
+                        <p>Feel free to browse my work, engage with my ideas, and reach out if you'd like to discuss any of the topics I explore.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><a href="#" onclick="showPage('essays')">Essays</a></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('essays', 'digital-revolution')">The Digital Revolution and Human Connection</a></h3>
+                        <p>An examination of how digital technology is reshaping our understanding of community, intimacy, and authentic human relationships in the 21st century.</p>
+                        <div class="project-preview">
+                            In our hyperconnected age, we find ourselves paradoxically more isolated than ever before. This essay explores the fundamental tension between digital connectivity and authentic human relationships, examining how social media platforms, dating apps, and virtual communities are redefining what it means to truly "connect" with another person...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Social Theory</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('essays', 'memory-identity')">Memory and Identity in Postmodern Literature</a></h3>
+                        <p>A critical analysis of how contemporary authors use fragmented narrative structures to explore themes of memory, trauma, and personal identity.</p>
+                        <div class="project-preview">
+                            Postmodern literature has fundamentally challenged traditional notions of linear narrative and coherent identity. This analysis examines how authors like Jennifer Egan, Kazuo Ishiguro, and Toni Morrison employ fragmented storytelling techniques to mirror the fractured nature of human memory and the constructed nature of personal identity...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Literary Criticism</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('essays', 'climate-ethics')">Climate Change and Environmental Ethics</a></h3>
+                        <p>Exploring the moral imperatives and philosophical frameworks needed to address our current environmental crisis through individual and collective action.</p>
+                        <div class="project-preview">
+                            The climate crisis presents perhaps the greatest ethical challenge of our time, forcing us to reconsider fundamental assumptions about human responsibility, intergenerational justice, and our relationship with the natural world. This essay examines competing ethical frameworks for environmental action...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Ethics</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><a href="#" onclick="showPage('thesis')">Thesis Work</a></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('thesis', 'narrative-truth')">Masters Thesis: "Narrative Truth in Autobiographical Fiction"</a></h3>
+                        <p>A comprehensive study examining how authors blend fact and fiction in autobiographical works, questioning traditional boundaries between memoir and novel.</p>
+                        <div class="project-preview">
+                            This thesis investigates the complex relationship between truth and narrative in contemporary autobiographical fiction, examining works by authors such as Karl Ove Knausgård, Rachel Cusk, and Ben Lerner who deliberately blur the boundaries between memoir and novel...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Research</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('thesis', 'ai-authorship')">Research Proposal: "AI and Creative Authorship"</a></h3>
+                        <p>Investigating questions of creativity, authorship, and intellectual property in the age of artificial intelligence and machine-generated content.</p>
+                        <div class="project-preview">
+                            As artificial intelligence systems become increasingly capable of generating human-like text, images, and other creative works, fundamental questions arise about the nature of creativity, authorship, and artistic value. This proposed research project would examine these questions through interdisciplinary analysis...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Proposal</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><a href="#" onclick="showPage('stories')">Creative Stories</a></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('stories', 'archivists-dilemma')">The Archivist's Dilemma</a></h3>
+                        <p>A short story about a librarian who discovers that books in her collection are mysteriously changing their contents, forcing her to question the nature of truth and permanence.</p>
+                        <div class="project-preview">
+                            Margaret had been the head librarian at the Whitmore Public Library for thirty-seven years, and in all that time, she had never encountered a problem that couldn't be solved with proper cataloging and meticulous attention to detail. That changed on a Tuesday morning in October when she discovered that page 247 of "The Great Gatsby" no longer contained the famous green light passage...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Short Fiction</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('stories', 'letters-tomorrow')">Letters to Tomorrow</a></h3>
+                        <p>A collection of interconnected vignettes told through letters written by people in the past to their future selves, exploring themes of hope, regret, and change.</p>
+                        <div class="project-preview">
+                            The collection opens with Sarah, age sixteen, writing to herself at thirty: "Dear Future Sarah, I hope you remember what it feels like to believe that anything is possible. I hope you haven't forgotten how the air smells after rain, or how it feels to stay up all night talking about books with someone who really understands..."
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Fiction Collection</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('stories', 'empty-rooms')">The Weight of Empty Rooms</a></h3>
+                        <p>A meditation on loneliness and connection through the story of an apartment building where residents communicate only through notes left in common spaces.</p>
+                        <div class="project-preview">
+                            Apartment 3B had been empty for six months when the first note appeared in the laundry room: "To whoever keeps leaving their clothes in the washer overnight—we all have schedules to keep. Please be considerate. -Management." But there was no management. The building had been self-managed since Mr. Chen, the superintendent, had passed away the previous spring...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Short Fiction</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><a href="#" onclick="showPage('philosophy')">Philosophical Reflections</a></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('philosophy', 'ethics-attention')">On the Ethics of Attention</a></h3>
+                        <p>A philosophical inquiry into attention as a moral resource, examining our responsibilities in how we direct our focus in an age of infinite distraction.</p>
+                        <div class="project-preview">
+                            In our hyperconnected age, attention has become perhaps our scarcest and most valuable resource. Yet we rarely consider the ethical dimensions of how we allocate this finite capacity. This reflection argues that attention is not merely a cognitive process but a moral practice that shapes both our character and our relationships with others...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Ethics</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('philosophy', 'everyday-rituals')">The Philosophy of Everyday Rituals</a></h3>
+                        <p>Exploring how daily practices and rituals create meaning, identity, and connection in both personal and communal contexts.</p>
+                        <div class="project-preview">
+                            The morning coffee, the bedtime story, the weekly phone call to parents—our lives are structured by countless small rituals that we perform with minimal conscious reflection. Yet these seemingly mundane practices serve profound philosophical functions, creating continuity of identity, connecting us to communities, and anchoring meaning in the flow of time...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Philosophy</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3><a href="#" onclick="showPost('philosophy', 'uncertainty-wisdom')">Uncertainty as Wisdom</a></h3>
+                        <p>An exploration of intellectual humility and the value of embracing uncertainty as a pathway to deeper understanding and empathy.</p>
+                        <div class="project-preview">
+                            In an age of information abundance and polarized certainties, intellectual humility has become a radical position. This reflection argues that acknowledging the limits of our knowledge is not a weakness but the beginning of wisdom, and that uncertainty can be a source of empathy, creativity, and ethical growth...
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-tag">Epistemology</span>
+                            <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><a href="#" onclick="showPage('contact')">Get In Touch</a></h2>
+                <div style="text-align: center; padding: 2rem;">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">I'd love to hear your thoughts on any of my work or discuss ideas that interest us both.</p>
+                    <p><strong>Email:</strong> your.email@example.com</p>
+                    <p><strong>Academic Profile:</strong> <a href="#" style="color: #ec4899;">University Profile</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>About Me</h1>
+                <p>Learn more about my background, interests, and intellectual journey</p>
+            </div>
+            
+            <div class="individual-post">
+                <div class="about-content">
+                    <div class="profile-placeholder">
+                        Your Photo Here
+                    </div>
+                    <div class="about-text">
+                        <p>Welcome! I'm a writer, thinker, and researcher passionate about exploring the depths of human experience through various forms of expression. My work spans academic research, creative writing, and philosophical inquiry.</p>
+                        
+                        <p>This site serves as a repository for my intellectual pursuits - from rigorous academic essays and thesis work to creative stories and philosophical musings. Each piece represents a step in my ongoing journey of understanding and articulating the complexities of our world.</p>
+                        
+                        <p>My academic background includes [Your Education Here], and I'm currently [Your Current Position/Studies]. My research interests center around [Your Research Interests], while my creative work explores themes of [Your Creative Themes].</p>
+                        
+                        <p>When I'm not writing or researching, I enjoy [Your Interests/Hobbies]. I believe that the best intellectual work emerges from a life fully lived, with curiosity about everything from [Specific Examples of Your Interests].</p>
+                        
+                        <p>Feel free to browse my work, engage with my ideas, and reach out if you'd like to discuss any of the topics I explore. I'm always interested in thoughtful conversations about literature, philosophy, culture, and the human condition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESSAYS PAGE -->
+    <div id="essays-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>Essays</h1>
+                <p>Academic and personal essays exploring contemporary issues, literature, and culture</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('essays', 'digital-revolution')">The Digital Revolution and Human Connection</a></h3>
+                    <p>An examination of how digital technology is reshaping our understanding of community, intimacy, and authentic human relationships in the 21st century.</p>
+                    <div class="project-preview">
+                        In our hyperconnected age, we find ourselves paradoxically more isolated than ever before. This essay explores the fundamental tension between digital connectivity and authentic human relationships, examining how social media platforms, dating apps, and virtual communities are redefining what it means to truly "connect" with another person...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Social Theory</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('essays', 'memory-identity')">Memory and Identity in Postmodern Literature</a></h3>
+                    <p>A critical analysis of how contemporary authors use fragmented narrative structures to explore themes of memory, trauma, and personal identity.</p>
+                    <div class="project-preview">
+                        Postmodern literature has fundamentally challenged traditional notions of linear narrative and coherent identity. This analysis examines how authors like Jennifer Egan, Kazuo Ishiguro, and Toni Morrison employ fragmented storytelling techniques to mirror the fractured nature of human memory and the constructed nature of personal identity...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Literary Criticism</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('essays', 'climate-ethics')">Climate Change and Environmental Ethics</a></h3>
+                    <p>Exploring the moral imperatives and philosophical frameworks needed to address our current environmental crisis through individual and collective action.</p>
+                    <div class="project-preview">
+                        The climate crisis presents perhaps the greatest ethical challenge of our time, forcing us to reconsider fundamental assumptions about human responsibility, intergenerational justice, and our relationship with the natural world. This essay examines competing ethical frameworks for environmental action...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Ethics</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- THESIS PAGE -->
+    <div id="thesis-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>Thesis Work</h1>
+                <p>Academic research projects, proposals, and scholarly investigations</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('thesis', 'narrative-truth')">Masters Thesis: "Narrative Truth in Autobiographical Fiction"</a></h3>
+                    <p>A comprehensive study examining how authors blend fact and fiction in autobiographical works, questioning traditional boundaries between memoir and novel.</p>
+                    <div class="project-preview">
+                        This thesis investigates the complex relationship between truth and narrative in contemporary autobiographical fiction, examining works by authors such as Karl Ove Knausgård, Rachel Cusk, and Ben Lerner who deliberately blur the boundaries between memoir and novel...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Research</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('thesis', 'ai-authorship')">Research Proposal: "AI and Creative Authorship"</a></h3>
+                    <p>Investigating questions of creativity, authorship, and intellectual property in the age of artificial intelligence and machine-generated content.</p>
+                    <div class="project-preview">
+                        As artificial intelligence systems become increasingly capable of generating human-like text, images, and other creative works, fundamental questions arise about the nature of creativity, authorship, and artistic value. This proposed research project would examine these questions through interdisciplinary analysis...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Proposal</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORIES PAGE -->
+    <div id="stories-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>Creative Stories</h1>
+                <p>Original fiction exploring themes of human connection, identity, and the search for meaning</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('stories', 'archivists-dilemma')">The Archivist's Dilemma</a></h3>
+                    <p>A short story about a librarian who discovers that books in her collection are mysteriously changing their contents, forcing her to question the nature of truth and permanence.</p>
+                    <div class="project-preview">
+                        Margaret had been the head librarian at the Whitmore Public Library for thirty-seven years, and in all that time, she had never encountered a problem that couldn't be solved with proper cataloging and meticulous attention to detail. That changed on a Tuesday morning in October when she discovered that page 247 of "The Great Gatsby" no longer contained the famous green light passage...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Short Fiction</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('stories', 'letters-tomorrow')">Letters to Tomorrow</a></h3>
+                    <p>A collection of interconnected vignettes told through letters written by people in the past to their future selves, exploring themes of hope, regret, and change.</p>
+                    <div class="project-preview">
+                        The collection opens with Sarah, age sixteen, writing to herself at thirty: "Dear Future Sarah, I hope you remember what it feels like to believe that anything is possible. I hope you haven't forgotten how the air smells after rain, or how it feels to stay up all night talking about books with someone who really understands..."
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Fiction Collection</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('stories', 'empty-rooms')">The Weight of Empty Rooms</a></h3>
+                    <p>A meditation on loneliness and connection through the story of an apartment building where residents communicate only through notes left in common spaces.</p>
+                    <div class="project-preview">
+                        Apartment 3B had been empty for six months when the first note appeared in the laundry room: "To whoever keeps leaving their clothes in the washer overnight—we all have schedules to keep. Please be considerate. -Management." But there was no management. The building had been self-managed since Mr. Chen, the superintendent, had passed away the previous spring...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Short Fiction</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHILOSOPHY PAGE -->
+    <div id="philosophy-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>Philosophical Reflections</h1>
+                <p>Contemplations on ethics, consciousness, meaning, and the human condition</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('philosophy', 'ethics-attention')">On the Ethics of Attention</a></h3>
+                    <p>A philosophical inquiry into attention as a moral resource, examining our responsibilities in how we direct our focus in an age of infinite distraction.</p>
+                    <div class="project-preview">
+                        In our hyperconnected age, attention has become perhaps our scarcest and most valuable resource. Yet we rarely consider the ethical dimensions of how we allocate this finite capacity. This reflection argues that attention is not merely a cognitive process but a moral practice that shapes both our character and our relationships with others...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Ethics</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('philosophy', 'everyday-rituals')">The Philosophy of Everyday Rituals</a></h3>
+                    <p>Exploring how daily practices and rituals create meaning, identity, and connection in both personal and communal contexts.</p>
+                    <div class="project-preview">
+                        The morning coffee, the bedtime story, the weekly phone call to parents—our lives are structured by countless small rituals that we perform with minimal conscious reflection. Yet these seemingly mundane practices serve profound philosophical functions, creating continuity of identity, connecting us to communities, and anchoring meaning in the flow of time...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Philosophy</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="#" onclick="showPost('philosophy', 'uncertainty-wisdom')">Uncertainty as Wisdom</a></h3>
+                    <p>An exploration of intellectual humility and the value of embracing uncertainty as a pathway to deeper understanding and empathy.</p>
+                    <div class="project-preview">
+                        In an age of information abundance and polarized certainties, intellectual humility has become a radical position. This reflection argues that acknowledging the limits of our knowledge is not a weakness but the beginning of wisdom, and that uncertainty can be a source of empathy, creativity, and ethical growth...
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Epistemology</span>
+                        <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page-container">
+        <div class="container">
+            <a href="#" onclick="showPage('home')" class="back-button">← Back to Home</a>
+            <div class="page-header">
+                <h1>Get In Touch</h1>
+                <p>I'd love to hear your thoughts and engage in meaningful conversations</p>
+            </div>
+            
+            <div class="individual-post">
+                <div style="text-align: center; padding: 2rem;">
+                    <h2 style="margin-bottom: 2rem; color: #2c3e50;">Contact Information</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">I'd love to hear your thoughts on any of my work or discuss ideas that interest us both. Whether you're interested in collaborative projects, academic discussions, or simply want to share your perspective on the topics I explore, I welcome thoughtful engagement.</p>
+                    
+                    <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(236, 72, 153, 0.05); border-radius: 10px;">
+                        <p style="margin-bottom: 1rem;"><strong>Email:</strong> your.email@example.com</p>
+                        <p style="margin-bottom: 1rem;"><strong>Academic Profile:</strong> <a href="#" style="color: #ec4899; text-decoration: none;">University Profile</a></p>
+                        <p style="margin-bottom: 1rem;"><strong>Research Gate:</strong> <a href="#" style="color: #ec4899; text-decoration: none;">ResearchGate Profile</a></p>
+                        <p><strong>Academia.edu:</strong> <a href="#" style="color: #ec4899; text-decoration: none;">Academia Profile</a></p>
+                    </div>
+                    
+                    <p style="font-size: 1.1rem; color: #666; margin-top: 2rem;">I typically respond to emails within 2-3 days. For academic collaborations or media inquiries, please include relevant details about your project or publication in your initial message.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INDIVIDUAL POST PAGES -->
+    <div id="post-page" class="page-container">
+        <div class="container">
+            <a href="#" id="post-back-button" class="back-button">← Back to Section</a>
+            <div class="individual-post" id="post-content">
+                <!-- Individual post content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Academia.edu</a>
+                <a href="#">ResearchGate</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-container');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Individual post content
+        const postContent = {
+            'essays': {
+                'digital-revolution': {
+                    title: 'The Digital Revolution and Human Connection',
+                    meta: 'Published in Contemporary Social Theory Review, 2024',
+                    content: `
+                        <p>In our hyperconnected age, we find ourselves paradoxically more isolated than ever before. This essay explores the fundamental tension between digital connectivity and authentic human relationships, examining how social media platforms, dating apps, and virtual communities are redefining what it means to truly "connect" with another person.</p>
+                        
+                        <p>The rise of digital communication has fundamentally altered the landscape of human interaction. Where once we relied on face-to-face encounters, phone calls, and handwritten letters to maintain relationships, we now navigate a complex web of likes, shares, comments, and instant messages. Each medium carries its own implicit rules and expectations, creating new forms of social anxiety and relationship dynamics.</p>
+                        
+                        <p>Consider the phenomenon of "digital intimacy" - the way couples share their daily lives through constant texting, photo sharing, and video calls. While this creates an unprecedented level of connection and accessibility, it also raises questions about privacy, authenticity, and the nature of intimate space. Are we more connected to our partners, or are we simply more surveilled?</p>
+                        
+                        <p>The essay further examines how social media platforms commodify human relationships, turning friendship and romantic connection into metrics and algorithms. The "attention economy" transforms our social lives into a competition for likes, views, and engagement, potentially undermining the intrinsic value of genuine human connection.</p>
+                        
+                        <p>Yet this technological revolution also offers unprecedented opportunities for connection across geographical and cultural boundaries. Online communities provide support networks for marginalized groups, long-distance relationships maintain intimacy through digital tools, and virtual spaces create new possibilities for creative collaboration and shared experience.</p>
+                        
+                        <p>The conclusion argues for a more mindful approach to digital communication - one that harnesses the connective power of technology while preserving the irreplaceable elements of human presence, vulnerability, and authentic encounter.</p>
+                    `
+                },
+                'memory-identity': {
+                    title: 'Memory and Identity in Postmodern Literature',
+                    meta: 'Presented at the Modern Literature Association Conference, 2024',
+                    content: `
+                        <p>Postmodern literature has fundamentally challenged traditional notions of linear narrative and coherent identity. This analysis examines how authors like Jennifer Egan, Kazuo Ishiguro, and Toni Morrison employ fragmented storytelling techniques to mirror the fractured nature of human memory and the constructed nature of personal identity.</p>
+                        
+                        <p>The traditional bildungsroman assumed a stable, developing self moving through time toward greater self-knowledge and maturity. Postmodern authors reject this model, instead presenting characters whose identities shift, fragment, and reconstruct themselves in response to trauma, cultural displacement, and the unreliability of memory itself.</p>
+                        
+                        <p>Jennifer Egan's "A Visit from the Goon Squad" exemplifies this approach through its non-linear structure, jumping between characters and time periods to create a mosaic of interconnected lives. The novel suggests that identity is not a fixed entity but rather a series of moments and relationships that gain meaning only in retrospect.</p>
+                        
+                        <p>Kazuo Ishiguro's "Never Let Me Go" uses the unreliable narrator technique to explore how individuals construct meaning from incomplete information about their own lives. The protagonist Kathy's gradual revelation of her true circumstances mirrors the way we all piece together our identities from fragments of memory, social conditioning, and selective forgetting.</p>
+                        
+                        <p>Toni Morrison's "Beloved" demonstrates how historical trauma fractures both individual and collective memory. The novel's non-linear structure reflects the way traumatic memories resist chronological ordering, surfacing unexpectedly and demanding to be witnessed and processed.</p>
+                        
+                        <p>These authors suggest that identity is not discovered but actively constructed through the stories we tell about ourselves. The fragmented narrative structure becomes a formal expression of this understanding, challenging readers to actively participate in creating meaning from textual fragments.</p>
+                        
+                        <p>The implications extend beyond literature to our understanding of selfhood in the contemporary world, where digital technologies create new forms of fragmented identity and social media platforms encourage the curation of multiple, sometimes contradictory, versions of the self.</p>
+                    `
+                },
+                'climate-ethics': {
+                    title: 'Climate Change and Environmental Ethics',
+                    meta: 'Environmental Philosophy Quarterly, Issue 3, 2024',
+                    content: `
+                        <p>The climate crisis presents perhaps the greatest ethical challenge of our time, forcing us to reconsider fundamental assumptions about human responsibility, intergenerational justice, and our relationship with the natural world. This essay examines competing ethical frameworks for environmental action and argues for a synthesis that combines utilitarian calculations with virtue ethics and care-based approaches.</p>
+                        
+                        <p>Traditional utilitarian approaches to climate change focus on maximizing overall welfare while minimizing harm. This framework supports policies like carbon pricing and cost-benefit analyses of climate interventions. However, pure utilitarianism struggles with questions of distributive justice - who bears the costs of climate action, and who benefits from continued emissions?</p>
+                        
+                        <p>Rights-based approaches emphasize the fundamental right to a livable environment and the corresponding duties this creates. This framework is particularly powerful when addressing climate justice issues, as it highlights how climate change disproportionately affects vulnerable populations who have contributed least to the problem.</p>
+                        
+                        <p>Virtue ethics asks what kind of people we should be in relation to the natural world. This approach emphasizes character traits like humility, temperance, and respect for nature. It suggests that environmental problems stem not just from wrong policies but from corrupted relationships with the natural world.</p>
+                        
+                        <p>Care ethics, emerging from feminist philosophy, emphasizes relationships and responsibilities rather than abstract rights and calculations. This framework highlights our interdependence with natural systems and other species, suggesting that environmental protection flows naturally from recognizing these relationships.</p>
+                        
+                        <p>The essay argues that effective climate action requires all these ethical perspectives. We need utilitarian calculations to understand the scope of required changes, rights-based frameworks to ensure just transitions, virtue ethics to transform our relationship with consumption and nature, and care ethics to maintain motivation for long-term environmental stewardship.</p>
+                        
+                        <p>The conclusion addresses the challenge of translating ethical insights into practical action, examining both individual lifestyle changes and systemic policy reforms necessary to address the climate crisis at the scale and speed required.</p>
+                    `
+                }
+            },
+            'thesis': {
+                'narrative-truth': {
+                    title: 'Masters Thesis: "Narrative Truth in Autobiographical Fiction"',
+                    meta: 'Completed 2024 - Department of Literature, Advisor: Dr. Sarah Mitchell',
+                    content: `
+                        <p><strong>Abstract:</strong> This thesis investigates the complex relationship between truth and narrative in contemporary autobiographical fiction, examining works by authors such as Karl Ove Knausgård, Rachel Cusk, and Ben Lerner who deliberately blur the boundaries between memoir and novel.</p>
+                        
+                        <p><strong>Chapter 1: The Crisis of Genre</strong><br>
+                        The traditional distinction between fiction and non-fiction has become increasingly problematic in contemporary literature. This chapter examines the historical development of autobiographical writing and the emergence of hybrid forms that resist easy categorization.</p>
+                        
+                        <p><strong>Chapter 2: The Ethics of Self-Representation</strong><br>
+                        When writers use real names and describe actual events, what obligations do they have to accuracy? This chapter explores the ethical implications of representing oneself and others in literary works that claim some relationship to truth.</p>
+                        
+                        <p><strong>Chapter 3: Memory and Construction</strong><br>
+                        Drawing on cognitive science research on memory, this chapter argues that all autobiographical writing is necessarily fictional insofar as memory itself is reconstructive rather than reproductive.</p>
+                        
+                        <p><strong>Chapter 4: Case Studies</strong><br>
+                        Detailed analysis of three paradigmatic works: Karl Ove Knausgård's "My Struggle" series, Rachel Cusk's "Outline" trilogy, and Ben Lerner's "10:04." Each represents a different approach to the integration of life and art.</p>
+                        
+                        <p><strong>Chapter 5: Reader Response and Genre Expectations</strong><br>
+                        How do readers navigate texts that resist clear generic boundaries? This chapter examines reception theory and reader expectations in relation to autobiographical fiction.</p>
+                        
+                        <p><strong>Conclusion:</strong><br>
+                        The thesis concludes that autobiographical fiction represents not a corruption of traditional genres but rather a more honest acknowledgment of the constructed nature of all narrative truth. These works offer readers a more authentic relationship to the complexities of lived experience.</p>
+                        
+                        <p><strong>Methodology:</strong> Close reading, genre theory, reception studies, cognitive approaches to literature</p>
+                        <p><strong>Length:</strong> 85 pages</p>
+                        <p><strong>Committee:</strong> Dr. Sarah Mitchell (Chair), Dr. James Chen, Dr. Maria Rodriguez</p>
+                        <p><strong>Defense Date:</strong> April 15, 2024</p>
+                    `
+                },
+                'ai-authorship': {
+                    title: 'Research Proposal: "AI and Creative Authorship"',
+                    meta: 'PhD Research Proposal - Submitted Fall 2024',
+                    content: `
+                        <p><strong>Research Question:</strong><br>
+                        How do AI-generated creative works challenge traditional concepts of authorship, creativity, and artistic value, and what new frameworks might we need to understand creative production in the age of artificial intelligence?</p>
+                        
+                        <p><strong>Background and Significance:</strong><br>
+                        The emergence of AI systems capable of generating poetry, fiction, visual art, and music raises fundamental questions about the nature of creativity itself. If a machine can produce works that are aesthetically pleasing, emotionally moving, or intellectually engaging, what does this mean for our understanding of human creativity and artistic value?</p>
+                        
+                        <p><strong>Literature Review:</strong><br>
+                        This research would engage with several bodies of scholarship: theories of creativity and authorship in literary studies, philosophical aesthetics, cognitive science research on creative processes, legal scholarship on intellectual property, and emerging work in digital humanities on computational creativity.</p>
+                        
+                        <p><strong>Methodology:</strong><br>
+                        The project would employ a mixed-methods approach combining:
+                        <br>• Close analysis of AI-generated creative works
+                        <br>• Comparative analysis with human-created works
+                        <br>• Surveys of reader/audience responses to AI-generated content
+                        <br>• Interviews with artists using AI tools in their creative practice
+                        <br>• Legal and ethical analysis of current intellectual property frameworks</p>
+                        
+                        <p><strong>Research Objectives:</strong><br>
+                        1. Develop new theoretical frameworks for understanding creativity that account for human-AI collaboration
+                        <br>2. Examine how readers/audiences respond to AI-generated content when they know vs. don't know its origins
+                        <br>3. Analyze the legal and ethical implications of AI creativity for copyright, plagiarism, and attribution
+                        <br>4. Investigate how human artists are incorporating AI tools into their creative practice</p>
+                        
+                        <p><strong>Expected Outcomes:</strong><br>
+                        This research would contribute to emerging conversations about technology and creativity while offering practical frameworks for navigating the legal, ethical, and aesthetic challenges posed by AI-generated content.</p>
+                        
+                        <p><strong>Timeline:</strong> 3-year PhD project</p>
+                        <p><strong>Proposed Supervisor:</strong> Dr. James Chen, Digital Humanities</p>
+                        <p><strong>Funding:</strong> Applied to NSF Graduate Research Fellowship</p>
+                        <p><strong>Status:</strong> Under review by PhD committee</p>
+                    `
+                }
+            },
+            'stories': {
+                'archivists-dilemma': {
+                    title: 'The Archivist\'s Dilemma',
+                    meta: 'Short Fiction - Published in Literary Review, Spring 2024',
+                    content: `
+                        <p>Margaret had been the head librarian at the Whitmore Public Library for thirty-seven years, and in all that time, she had never encountered a problem that couldn't be solved with proper cataloging and meticulous attention to detail. That changed on a Tuesday morning in October when she discovered that page 247 of "The Great Gatsby" no longer contained the famous green light passage.</p>
+                        
+                        <p>Instead, the page read: "And so we beat on, boats against the current, borne back ceaselessly into the future." The word "future" where "past" should have been made Margaret's hands shake as she held the familiar green cover.</p>
+                        
+                        <p>She checked three other copies. All the same. The change was consistent, systematic, as if it had always been this way. But Margaret remembered the original line—she had quoted it in dozens of book club discussions, had helped countless students analyze its meaning.</p>
+                        
+                        <p>Over the following weeks, other changes appeared. In "1984," Room 101 had become Room 102. In "Pride and Prejudice," Elizabeth Bennet's famous walk through muddy fields had been replaced with a carriage ride. Small changes, but to Margaret, they were seismic shifts in the literary landscape she had devoted her life to preserving.</p>
+                        
+                        <p>The townspeople didn't notice. When Margaret mentioned the changes, they looked at her with concern. "It's always been 'into the future,'" her assistant Jenny said gently. "Are you feeling alright?"</p>
+                        
+                        <p>Margaret began to wonder if she was losing her mind. But late at night, alone in the library, she would sit surrounded by books that seemed to shimmer at the edges of her vision, their contents fluid, mutable. She started keeping detailed notes, documenting every change she discovered, creating her own archive of what she remembered versus what now existed.</p>
+                        
+                        <p>The story culminates when Margaret realizes that she has become the sole guardian not just of books, but of memory itself. In a world where texts can change overnight, her role transforms from preserver of information to protector of truth—even if no one else believes her.</p>
+                        
+                        <p>The ending leaves ambiguous whether the books are actually changing or whether Margaret's mind is playing tricks on her, but suggests that in either case, the act of bearing witness to what was, even when everyone else accepts what is, represents a form of heroism.</p>
+                        
+                        <p><em>Winner of the 2024 Emerging Writers Fiction Prize</em></p>
+                    `
+                },
+                'letters-tomorrow': {
+                    title: 'Letters to Tomorrow',
+                    meta: 'Fiction Collection - Manuscript completed 2024',
+                    content: `
+                        <p><strong>A Collection of Interconnected Stories</strong></p>
+                        
+                        <p><strong>Story 1: "What Sixteen Knows"</strong><br>
+                        The collection opens with Sarah, age sixteen, writing to herself at thirty: "Dear Future Sarah, I hope you remember what it feels like to believe that anything is possible. I hope you haven't forgotten how the air smells after rain, or how it feels to stay up all night talking about books with someone who really understands."</p>
+                        
+                        <p>The letter is full of dreams and warnings—stay close to Mom, don't let career consume everything, remember that love is worth the risk. Years later, we meet thirty-year-old Sarah finding this letter in her childhood bedroom while cleaning out her mother's house after the funeral.</p>
+                        
+                        <p><strong>Story 2: "The Photographer's Eye"</strong><br>
+                        Marcus, a war photographer, writes to his future self before his first overseas assignment: "I want to document truth, to show people what they need to see. I believe photographs can change the world." The story follows his gradual disillusionment and the toll that witnessing trauma takes on his capacity for hope.</p>
+                        
+                        <p><strong>Story 3: "Migration Patterns"</strong><br>
+                        Elena writes to her future self before immigrating from El Salvador: "I am carrying our grandmother's recipes in my memory and our father's stories in my heart. I don't know what I will become in this new country, but I promise to remember where we came from."</p>
+                        
+                        <p><strong>Story 4: "The Mathematics of Loss"</strong><br>
+                        A mathematician writes to himself before his daughter's birth, full of equations for love and calculations of joy. Later stories reveal how grief doesn't follow mathematical laws, and how some problems have no elegant solutions.</p>
+                        
+                        <p><strong>Story 5: "Inheritance"</strong><br>
+                        The collection concludes with a letter that connects all the previous characters—they are all connected through a high school English teacher who gave them the assignment to write to their future selves. The final story is her letter to her future self, wondering about the impact she'll have on her students' lives.</p>
+                        
+                        <p>The collection explores how our younger selves' hopes and fears shape who we become, and how the act of writing to the future is itself a form of faith in the possibility of change and continuity.</p>
+                        
+                        <p><em>Currently seeking publication - finalist for the 2024 Flannery O'Connor Award</em></p>
+                    `
+                },
+                'empty-rooms': {
+                    title: 'The Weight of Empty Rooms',
+                    meta: 'Short Fiction - Forthcoming in Quarterly Fiction Review',
+                    content: `
+                        <p>Apartment 3B had been empty for six months when the first note appeared in the laundry room: "To whoever keeps leaving their clothes in the washer overnight—we all have schedules to keep. Please be considerate. -Management." But there was no management. The building had been self-managed since Mr. Chen, the superintendent, had passed away the previous spring.</p>
+                        
+                        <p>The note sparked something. Within days, other notes began appearing throughout the building. Not angry ones—tentative communications, small offerings of connection in a place where people had lived alongside each other for years without speaking.</p>
+                        
+                        <p>"Thank you to whoever has been watering the plants in the lobby. They look beautiful. -2A"</p>
+                        
+                        <p>"The person in 4C who practices violin—your music has been getting me through some difficult nights. Don't stop. -A neighbor"</p>
+                        
+                        <p>"Someone left homemade soup outside my door when I was sick last week. I don't know who you are, but it meant everything. -5D"</p>
+                        
+                        <p>The story follows several residents as they navigate their isolation and gradual connection through these anonymous exchanges. There's Maria in 2A, recently divorced and struggling with the silence of living alone. David in 4C, a musician dealing with performance anxiety who finds courage in his unknown audience. Mrs. Patterson in 5D, elderly and mostly housebound, who becomes the unofficial chronicler of the building's small kindnesses.</p>
+                        
+                        <p>The empty apartment in 3B becomes a kind of character itself—the absence around which the community forms. The residents begin to care for the space collectively, leaving small gifts, maintaining the abandoned plants on the fire escape, ensuring the locks work properly.</p>
+                        
+                        <p>The climax comes when the building faces eviction due to rising property values. The note-writing system becomes a way to organize resistance, to document their community for the housing court, to prove that this place is more than just real estate.</p>
+                        
+                        <p>The story ends with the question of whether physical spaces create community or whether community creates the meaning of space. The building is saved, but more importantly, its residents have learned to see each other—and themselves—differently.</p>
+                        
+                        <p>The title reflects both the literal weight of silence and isolation, and the metaphorical weight of potential—how empty spaces can become full of possibility when people choose to reach across the void.</p>
+                        
+                        <p><em>Scheduled for publication in Quarterly Fiction Review, Winter 2024 issue</em></p>
+                    `
+                }
+            },
+            'philosophy': {
+                'ethics-attention': {
+                    title: 'On the Ethics of Attention',
+                    meta: 'Philosophical Essay - Philosophy Today, Vol. 68, 2024',
+                    content: `
+                        <p>In our hyperconnected age, attention has become perhaps our scarcest and most valuable resource. Yet we rarely consider the ethical dimensions of how we allocate this finite capacity. This reflection argues that attention is not merely a cognitive process but a moral practice that shapes both our character and our relationships with others.</p>
+                        
+                        <p><strong>Attention as Moral Practice</strong><br>
+                        When we give our attention to something, we are making a value judgment about what deserves our limited cognitive resources. The parent who scrolls through social media while their child tells a story is making a choice about what matters. The student who multitasks during a lecture is expressing a judgment about the relative value of immediate gratification versus long-term learning.</p>
+                        
+                        <p><strong>The Economy of Attention</strong><br>
+                        Technology companies have transformed attention into a commodity, designing platforms that maximize engagement regardless of user well-being. This creates an ethical tension: our attention is being harvested for profit, often in ways that undermine our capacity for deep thought, meaningful relationships, and sustained engagement with complex problems.</p>
+                        
+                        <p><strong>Attention and Recognition</strong><br>
+                        Drawing on Simone Weil's conception of attention as a form of prayer, this section explores how paying attention to others can be understood as a fundamental form of moral recognition. To truly see someone—to attend to their words, emotions, and needs without the filter of our own agenda—is perhaps the most basic gift we can offer.</p>
+                        
+                        <p><strong>Collective Attention and Democracy</strong><br>
+                        Democracy requires citizens capable of sustained attention to complex issues. When our collective attention span becomes fragmented, we lose the capacity for the kind of deliberative discourse necessary for self-governance. The ethics of attention thus extends beyond individual wellbeing to the health of democratic institutions.</p>
+                        
+                        <p><strong>Practices of Ethical Attention</strong><br>
+                        The essay concludes with practical suggestions for cultivating ethical attention: digital fasting, contemplative reading, active listening practices, and what might be called "attention activism"—deliberately directing our focus toward marginalized voices and neglected issues.</p>
+                        
+                        <p><strong>Conclusion</strong><br>
+                        In a world designed to scatter our attention, the act of choosing where to direct our focus becomes a form of resistance and a practice of care. How we pay attention shapes not only what we understand about the world, but who we become as moral agents within it.</p>
+                    `
+                },
+                'everyday-rituals': {
+                    title: 'The Philosophy of Everyday Rituals',
+                    meta: 'Cultural Philosophy Quarterly, Issue 2, 2024',
+                    content: `
+                        <p>The morning coffee, the bedtime story, the weekly phone call to parents—our lives are structured by countless small rituals that we perform with minimal conscious reflection. Yet these seemingly mundane practices serve profound philosophical functions, creating continuity of identity, connecting us to communities, and anchoring meaning in the flow of time.</p>
+                        
+                        <p><strong>Ritual and Identity Formation</strong><br>
+                        Our daily rituals serve as what sociologists call "identity work"—regular practices that reinforce who we understand ourselves to be. The writer who sits down at the same desk each morning, the athlete who follows a pre-game routine, the family that shares Sunday dinner—these rituals create continuity of self across time and circumstances.</p>
+                        
+                        <p><strong>The Sacred in the Secular</strong><br>
+                        Drawing on Émile Durkheim's analysis of religious ritual, this section explores how secular practices can carry sacred meaning. The birthday cake, the graduation ceremony, even the office happy hour create moments of collective effervescence that bind communities together and mark significant transitions.</p>
+                        
+                        <p><strong>Ritual as Resistance to Time's Passage</strong><br>
+                        In a culture obsessed with efficiency and progress, ritual represents a form of temporal resistance. The tea ceremony that cannot be rushed, the prayer that must be said completely, the family dinner that prioritizes presence over productivity—these practices assert the value of being over doing.</p>
+                        
+                        <p><strong>Digital Rituals and Virtual Communities</strong><br>
+                        The digital age has created new forms of ritual practice: the morning scroll through social media, the nightly Netflix binge, the group chat that maintains friendships across distances. While these practices lack the physical embodiment of traditional rituals, they serve similar functions of creating routine, connection, and shared meaning.</p>
+                        
+                        <p><strong>The Ethics of Ritual Participation</strong><br>
+                        When do rituals become empty gestures versus meaningful practices? This section examines the difference between authentic ritual participation and mere going through the motions, exploring how intention and attention transform routine into meaningful practice.</p>
+                        
+                        <p><strong>Creating New Rituals</strong><br>
+                        As traditional religious and cultural frameworks lose their hold, individuals and communities are creating new ritual practices to meet contemporary needs. From secular funeral practices to digital sabbaths to gratitude journaling, these emerging rituals reflect our ongoing need for structure, meaning, and connection.</p>
+                        
+                        <p>The essay concludes that ritual is not the enemy of rationality but rather a necessary complement to it—providing the emotional and social anchoring that pure reason cannot supply.</p>
+                    `
+                },
+                'uncertainty-wisdom': {
+                    title: 'Uncertainty as Wisdom',
+                    meta: 'Epistemology Review, Volume 31, 2024',
+                    content: `
+                        <p>In an age of information abundance and polarized certainties, intellectual humility has become a radical position. This reflection argues that acknowledging the limits of our knowledge is not a weakness but the beginning of wisdom, and that uncertainty can be a source of empathy, creativity, and ethical growth.</p>
+                        
+                        <p><strong>The Certainty Trap</strong><br>
+                        Modern culture rewards those who speak with confidence and conviction. Politicians who admit uncertainty are seen as weak; experts who acknowledge the limits of their knowledge are viewed as incompetent. Yet this cult of certainty often leads to oversimplification of complex issues and resistance to new information that challenges our beliefs.</p>
+                        
+                        <p><strong>Socratic Wisdom Revisited</strong><br>
+                        Socrates' famous claim that "the only thing I know is that I know nothing" is often dismissed as false modesty or philosophical paradox. But this stance represents a profound insight: recognizing the boundaries of our knowledge opens us to genuine learning, while false certainty closes off possibilities for growth and discovery.</p>
+                        
+                        <p><strong>Uncertainty and Empathy</strong><br>
+                        When we acknowledge that our perspective is limited and partial, we become more open to other viewpoints. Uncertainty creates space for empathy by reminding us that others may see aspects of reality that we miss. The parent who admits they don't have all the answers models intellectual humility for their children. The leader who acknowledges uncertainty invites collaboration rather than demanding blind obedience.</p>
+                        
+                        <p><strong>The Creative Potential of Not-Knowing</strong><br>
+                        Certainty can be a creativity killer. When we think we already know the answer, we stop looking for new possibilities. Artists, scientists, and innovators often work from a place of productive uncertainty—following questions rather than defending answers, remaining open to surprise and discovery.</p>
+                        
+                        <p><strong>Ethical Implications of Intellectual Humility</strong><br>
+                        Our moral judgments are often based on incomplete information and limited perspective. Recognizing this doesn't lead to moral relativism but rather to a more nuanced approach to ethical thinking—one that holds our convictions lightly while remaining committed to the pursuit of justice and compassion.</p>
+                        
+                        <p><strong>Practices of Intellectual Humility</strong><br>
+                        How can we cultivate comfort with uncertainty? This section explores practical approaches: seeking out disconfirming evidence, engaging seriously with opposing viewpoints, practicing "strong opinions, weakly held," and developing comfort with saying "I don't know."</p>
+                        
+                        <p><strong>Uncertainty and Faith</strong><br>
+                        The reflection concludes by examining how uncertainty relates to faith—not religious faith necessarily, but the basic faith required to act in the world despite incomplete knowledge. Living with uncertainty requires a kind of courage: the willingness to make decisions and commitments while acknowledging that we might be wrong.</p>
+                        
+                        <p>Rather than paralyzing us, embracing uncertainty can become a source of humility, wonder, and deeper engagement with the complexity of existence.</p>
+                    `
+                }
+            }
+        };
+
+        // Show individual post
+        function showPost(section, postId) {
+            const post = postContent[section][postId];
+            if (!post) return;
+            
+            const postContentDiv = document.getElementById('post-content');
+            const backButton = document.getElementById('post-back-button');
+            
+            postContentDiv.innerHTML = `
+                <h2>${post.title}</h2>
+                <div class="meta">${post.meta}</div>
+                <div class="content">${post.content}</div>
+            `;
+            
+            backButton.onclick = () => showPage(section);
+            backButton.textContent = `← Back to ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+            
+            showPage('post');
+        }
+
+        // Toggle content function
+        function toggleContent(button) {
+            const card = button.closest('.project-card');
+            const preview = card.querySelector('.project-preview');
+            
+            if (preview.style.display === 'none' || preview.style.display === '') {
+                preview.style.display = 'block';
+                button.textContent = 'See Less';
+            } else {
+                preview.style.display = 'none';
+                button.textContent = 'See More';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.01)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
