@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFD Analysis of Injection Moulding - Jodie Scrimshaw</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Jodie Scrimshaw</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="essays.html">Essays</a></li>
+                <li><a href="thesis.html">Thesis</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="thesis.html" class="back-button">← Back to Thesis</a>
+        
+        <div class="individual-post">
+            <h2>Computational Fluid Dynamics Analysis of Injection Moulding Dog Bones</h2>
+            <div class="meta">BSc Chemical Engineering Thesis (2024) | Grade: 8.5/10</div>
+            
+            <div class="content">
+                <p><strong>Comparative analysis of phase field and level set methods in simulating injection moulding processes using COMSOL Multiphysics.</strong></p>
+
+                <h4>Table of Contents:</h4>
+                
+                <p><strong>1. Introduction</strong><br>
+                Establishes the importance of CFD in injection moulding, focusing on dog bone moulds used for testing plastic mechanical properties. Outlines the challenges of introducing novel plastics without empirical data.</p>
+                
+                <p><strong>2. Theory</strong><br>
+                <strong>2.1 Polymer Viscosity:</strong> Explains the Vogel-Fulcher-Tammann equation for temperature-dependent viscosity.<br>
+                <strong>2.2 Physics:</strong> Covers laminar flow (Navier-Stokes equations), Phase Field method, Level Set method, and heat transfer in fluids. Details the mathematical foundations for multiphase flow simulations.</p>
+                
+                <p><strong>3. Method</strong><br>
+                <strong>3.1 Model Geometry:</strong> Describes the ASTM D638 Type I dog bone mould design and SolidWorks modeling.<br>
+                <strong>3.2 Materials:</strong> Details polystyrene properties and simulation parameters.<br>
+                <strong>3.3 Boundary Conditions:</strong> Specifies conditions for laminar flow, phase field, level set, and heat transport.<br>
+                <strong>3.4 Mesh Study:</strong> Analyzes computational efficiency versus accuracy trade-offs.</p>
+                
+                <p><strong>4. Results and Discussion</strong><br>
+                <strong>4.1 Phase Field:</strong> Analyzes filling patterns and volume fractions under varying pressures and viscosities.<br>
+                <strong>4.2 PF vs LS Comparison:</strong> Compares numerical stability, filling uniformity, and computational performance.<br>
+                <strong>4.3 Heat Transfer:</strong> Discusses limitations in thermal modeling and unrealistic temperature distributions.<br>
+                <strong>4.4 Limitations:</strong> Addresses viscosity parameters, velocity magnitudes, and model constraints.</p>
+                
+                <p><strong>5. Conclusion</strong><br>
+                Summarizes method performance: PF shows better filling uniformity but less stability; LS provides better stability across conditions. Heat transfer modeling requires significant improvements for practical application.</p>
+                
+                <div class="course-info">
+                    <strong>Supervisor:</strong> Pablo Druetta<br>
+                    <strong>Second Reader:</strong> Daniele Parisi<br>
+                    <strong>Date:</strong> March 27, 2024<br>
+                    <strong>Grade:</strong> 8.5/10
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="pdfs/thesis-engineering-cfd-analysis.pdf" target="_blank" class="cta-button">Download Full PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jodie Scrimshaw. All rights reserved.</p>
+            <div class="social-links">
+                <a href="www.linkedin.com/in/j-w-scrimshaw">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
