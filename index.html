@@ -130,7 +130,7 @@
             </div>
         </section>
 
-        <section id="thesis" class="section">
+         <section id="thesis" class="section">
           <h2><a href="thesis.html">Thesis Work</a></h2>
           <div class="projects-grid">
         
@@ -188,8 +188,83 @@
               <div class="project-full-text">
                 <h4>Table of Contents:</h4>
                 <p><strong>1. Introduction</strong><br>
-                Establishes the importance of CFD in injection moulding, focusing on dog bone moulds used f
+                Establishes the importance of CFD in injection moulding, focusing on dog bone moulds used for testing plastic mechanical properties. Outlines the challenges of introducing novel plastics without empirical data.</p>
         
+                <p><strong>2. Theory</strong><br>
+                <strong>2.1 Polymer Viscosity:</strong> Explains the Vogel-Fulcher-Tammann equation for temperature-dependent viscosity.<br>
+                <strong>2.2 Physics:</strong> Covers laminar flow (Navier-Stokes equations), Phase Field method, Level Set method, and heat transfer in fluids. Details the mathematical foundations for multiphase flow simulations.</p>
+        
+                <p><strong>3. Method</strong><br>
+                <strong>3.1 Model Geometry:</strong> Describes the ASTM D638 Type I dog bone mould design and SolidWorks modeling.<br>
+                <strong>3.2 Materials:</strong> Details polystyrene properties and simulation parameters.<br>
+                <strong>3.3 Boundary Conditions:</strong> Specifies conditions for laminar flow, phase field, level set, and heat transport.<br>
+                <strong>3.4 Mesh Study:</strong> Analyzes computational efficiency versus accuracy trade-offs.</p>
+        
+                <p><strong>4. Results and Discussion</strong><br>
+                <strong>4.1 Phase Field:</strong> Analyzes filling patterns and volume fractions under varying pressures and viscosities.<br>
+                <strong>4.2 PF vs LS Comparison:</strong> Compares numerical stability, filling uniformity, and computational performance.<br>
+                <strong>4.3 Heat Transfer:</strong> Discusses limitations in thermal modeling and unrealistic temperature distributions.<br>
+                <strong>4.4 Limitations:</strong> Addresses viscosity parameters, velocity magnitudes, and model constraints.</p>
+        
+                <p><strong>5. Conclusion</strong><br>
+                Summarizes method performance: PF shows better filling uniformity but less stability; LS provides better stability across conditions. Heat transfer modeling requires significant improvements for practical application.</p>
+        
+                <p><strong>Supervisor:</strong> Pablo Druetta<br>
+                <strong>Second Reader:</strong> Daniele Parisi<br>
+                <strong>Date:</strong> March 27, 2024<br>
+                <strong>Grade:</strong> 8.5/10</p>
+        
+                <p><a href="pdfs/thesis-engineering-cfd-analysis.pdf" target="_blank" style="color: #ec4899; font-weight: bold;">📄 Download Full PDF</a></p>
+              </div><!-- end .project-full-text -->
+        
+              <div class="project-meta">
+                <span class="project-tag">Chemical Engineering</span>
+                <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+              </div>
+            </div><!-- end .project-card -->
+        
+        
+            <!-- Card 3 -->
+            <div class="project-card">
+              <h3><a href="posts/martini-dna-forcefield.html">Parameterising Martini 3 Coarse-Grained Force Field for B-DNA</a></h3>
+              <p>BSc Chemistry Thesis - Development of coarse-grained force field parameters for DNA simulations, focusing on adenine and thymine residues using GROMACS molecular dynamics.</p>
+        
+              <div class="project-full-text">
+                <h4>Table of Contents:</h4>
+                <p><strong>1. Introduction</strong><br>
+                Introduces molecular dynamics and the Martini coarse-grained force field. Discusses DNA structural forms (B-DNA vs Z-DNA) and the challenges of parameterizing nucleic acids in CG models.</p>
+        
+                <p><strong>2. Method</strong><br>
+                <strong>2.1 Computational Details:</strong> GROMACS 2021.5 parameters for AA and CG simulations.<br>
+                <strong>2.2-2.3 Simulation Setups:</strong> Detailed protocols for all-atomistic reference simulations and coarse-grained parameterization.<br>
+                <strong>2.4 Structure Files:</strong> Sources for B-DNA, Z-DNA, and individual base structures.<br>
+                <strong>2.5 Analysis:</strong> Parameterization methodology and clustering analysis for base interactions.<br>
+                <strong>2.6 Bonded Interactions:</strong> Mathematical formulations for bonds, angles, and dihedrals.</p>
+        
+                <p><strong>3. Results and Discussion</strong><br>
+                <strong>3.1 Mapping and Parameterization:</strong> Analysis of AA to CG conversion, bond/angle/dihedral distributions, and force field optimization challenges.<br>
+                <strong>3.2 Clustering Analysis:</strong> Comparison of base-base interactions between AA (-7.5 kJ/mol) and CG (-5 kJ/mol) models, revealing the importance of entropic driving forces.<br>
+                <strong>3.3 Maximizing Entropic Forces:</strong> Final attempt using hydrophobic/polar bead modifications to achieve base stacking and helical conformation.</p>
+        
+                <p><strong>Conclusion and Outlook</strong><br>
+                Successfully demonstrates that entropic driving forces, rather than enthalpic interactions, govern DNA structure. Modified bead types achieved base stacking and helical structure, though less stable than AA simulations. Recommends future focus on backbone strain optimization.</p>
+        
+                <p><strong>Supervisor:</strong> Alex de Vries<br>
+                <strong>Date:</strong> December 4, 2023<br>
+                <strong>Grade:</strong> 9/10</p>
+        
+                <p><a href="pdfs/thesis-computational-martini-dna.pdf" target="_blank" style="color: #ec4899; font-weight: bold;">📄 Download Full PDF</a></p>
+              </div><!-- end .project-full-text -->
+        
+              <div class="project-meta">
+                <span class="project-tag">Chemistry</span>
+                <button class="see-more-btn" onclick="toggleContent(this)">See More</button>
+              </div>
+            </div><!-- end .project-card -->
+        
+          </div><!-- end .projects-grid -->
+        </section>
+       
                 
                 <section id="stories" class="section">
                     <h2><a href="stories.html">Creative Stories</a></h2>
