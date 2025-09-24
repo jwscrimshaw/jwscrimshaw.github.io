@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameterising Martini 3 Coarse-Grained Force Field for B-DNA - Jodie Scrimshaw</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Jodie Scrimshaw</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="essays.html">Essays</a></li>
+                <li><a href="thesis.html">Thesis</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="thesis.html" class="back-button">← Back to Thesis</a>
+        
+        <div class="individual-post">
+            <h2>Parameterising Martini 3 Coarse-Grained Force Field for B-DNA</h2>
+            <div class="meta">BSc Chemistry Thesis (2024) | Grade: 9/10</div>
+            
+            <div class="content">
+                <p><strong>Development of coarse-grained force field parameters for DNA simulations, focusing on adenine and thymine residues using GROMACS molecular dynamics.</strong></p>
+
+                <h4>Table of Contents:</h4>
+              
+                <p><strong>1. Introduction</strong><br>
+                Introduces molecular dynamics and the Martini coarse-grained force field. Discusses DNA structural forms (B-DNA vs Z-DNA) and the challenges of parameterizing nucleic acids in CG models.</p>
+                        
+                <p><strong>2. Method</strong><br>
+                <strong>2.1 Computational Details:</strong> GROMACS 2021.5 parameters for AA and CG simulations.<br>
+                <strong>2.2-2.3 Simulation Setups:</strong> Detailed protocols for all-atomistic reference simulations and coarse-grained parameterization.<br>
+                <strong>2.4 Structure Files:</strong> Sources for B-DNA, Z-DNA, and individual base structures.<br>
+                <strong>2.5 Analysis:</strong> Parameterization methodology and clustering analysis for base interactions.<br>
+                <strong>2.6 Bonded Interactions:</strong> Mathematical formulations for bonds, angles, and dihedrals.</p>
+                        
+                <p><strong>3. Results and Discussion</strong><br>
+                <strong>3.1 Mapping and Parameterization:</strong> Analysis of AA to CG conversion, bond/angle/dihedral distributions, and force field optimization challenges.<br>
+                <strong>3.2 Clustering Analysis:</strong> Comparison of base-base interactions between AA (-7.5 kJ/mol) and CG (-5 kJ/mol) models, revealing the importance of entropic driving forces.<br>
+                <strong>3.3 Maximizing Entropic Forces:</strong> Final attempt using hydrophobic/polar bead modifications to achieve base stacking and helical conformation.</p>
+                        
+                <p><strong>Conclusion and Outlook</strong><br>
+                Successfully demonstrates that entropic driving forces, rather than enthalpic interactions, govern DNA structure. Modified bead types achieved base stacking and helical structure, though less stable than AA simulations. Recommends future focus on backbone strain optimization.</p>
+        
+                <div class="course-info">
+                    <strong>Supervisor:</strong> Pablo Druetta<br>
+                    <strong>Second Reader:</strong> Daniele Parisi<br>
+                    <strong>Date:</strong> March 27, 2024<br>
+                    <strong>Grade:</strong> 8.5/10
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="pdfs/thesis-computational-martini-dna.pdf" target="_blank" class="cta-button">Download Full PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jodie Scrimshaw. All rights reserved.</p>
+            <div class="social-links">
+                <a href="www.linkedin.com/in/j-w-scrimshaw">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
